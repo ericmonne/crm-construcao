@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CRM para distribuidoras de material de construção em atacado B2B. Gerencie clientes, oportunidades e pipeline de vendas.">
+  <meta name="theme-color" content="#080f1a">
+  <title>ConstróiCRM — Atacado B2B | Material de Construção</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Favicon inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e6fb5'/><text y='.9em' font-size='70' x='15'>🏗</text></svg>">
+</head>
+<body>
+  <!-- App Root -->
+  <div id="app"></div>
+
+  <!-- Loading screen (shown until JS initializes) -->
+  <div id="loading-screen" style="
+    position:fixed; inset:0; background:#080f1a;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:16px; z-index:9999; font-family:Inter,sans-serif;
+    transition:opacity 400ms ease;
+  ">
+    <div style="
+      width:52px; height:52px; border-radius:14px;
+      background:linear-gradient(135deg,#1e6fb5,#38bdf8);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 30px rgba(30,111,181,0.5);
+      animation:pulse 1.5s ease-in-out infinite;
+    ">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    </div>
+    <div style="color:#f0f6ff; font-size:18px; font-weight:700; letter-spacing:-0.01em">ConstróiCRM</div>
+    <div style="color:#5a7590; font-size:13px">Carregando...</div>
+    <div style="
+      width:120px; height:3px; background:#122038; border-radius:99px; overflow:hidden; margin-top:4px;
+    ">
+      <div style="
+        height:100%; background:linear-gradient(90deg,#1e6fb5,#38bdf8);
+        border-radius:99px; animation:loadBar 1s ease forwards;
+      "></div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(30,111,181,0.5); }
+      50%       { transform: scale(1.06); box-shadow: 0 0 50px rgba(30,111,181,0.7); }
+    }
+    @keyframes loadBar {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+  </style>
+
+  <!-- Scripts (order matters) -->
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/pipeline.js"></script>
+  <script src="js/clients.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Remove loading screen after app initializes
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const ls = document.getElementById('loading-screen');
+        if (ls) {
+          ls.style.opacity = '0';
+          ls.style.pointerEvents = 'none';
+          setTimeout(() => ls.remove(), 400);
+        }
+      }, 600);
+    });
+  </script>
+</body>
+</html>

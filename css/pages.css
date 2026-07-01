@@ -1,0 +1,572 @@
+/* ============================================================
+   PAGES.CSS — Page-specific layouts
+   ============================================================ */
+
+/* ============================================================
+   DASHBOARD PAGE
+   ============================================================ */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.dashboard-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.dashboard-row-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  height: 240px;
+}
+
+/* Funnel */
+.funnel-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.funnel-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.funnel-phase-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.funnel-bar-wrap {
+  flex: 1;
+}
+
+.funnel-count {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 20px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.funnel-value {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  width: 80px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Tasks */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.task-item:hover {
+  border-color: var(--border-default);
+  background: var(--bg-hover);
+}
+
+.task-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.task-item:hover .task-check {
+  border-color: var(--brand-primary);
+}
+
+.task-title {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.task-item.urgente .task-title { color: var(--text-primary); }
+
+.task-urgente-badge {
+  background: rgba(249,115,22,0.15);
+  color: var(--brand-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* Vendedores ranking */
+.vendedores-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.vendedor-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.vendedor-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vendedor-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vendedor-progress {
+  margin-top: 4px;
+}
+
+.vendedor-value {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   PIPELINE PAGE (KANBAN)
+   ============================================================ */
+.pipeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.pipeline-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pipeline-board {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-6);
+  min-height: calc(100vh - 220px);
+  align-items: flex-start;
+}
+
+/* Kanban Column */
+.kanban-column {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.kanban-column-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.kanban-col-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.kanban-col-name {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.kanban-col-count {
+  background: var(--bg-hover);
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.kanban-col-value {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Kanban Cards drop zone */
+.kanban-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 80px;
+  padding: 4px 2px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.kanban-cards.drag-over {
+  background: rgba(30,111,181,0.08);
+  border: 2px dashed rgba(30,111,181,0.3);
+}
+
+/* Opportunity Card */
+.opp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  cursor: grab;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.opp-card:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.opp-card.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+  box-shadow: var(--shadow-xl);
+}
+
+.opp-card-accent {
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
+
+.opp-card-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: var(--space-2);
+  padding-left: 8px;
+}
+
+.opp-card-client {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+  padding-left: 8px;
+}
+
+.opp-card-client svg { width: 12px; height: 12px; }
+
+.opp-card-value {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  padding-left: 8px;
+  margin-bottom: var(--space-3);
+}
+
+.opp-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.opp-card-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+.opp-card-date svg { width: 11px; height: 11px; }
+
+.opp-card-prob {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Drag ghost placeholder */
+.drag-placeholder {
+  background: rgba(30,111,181,0.06);
+  border: 2px dashed rgba(30,111,181,0.25);
+  border-radius: var(--radius-md);
+  height: 100px;
+}
+
+/* ============================================================
+   CLIENTS PAGE
+   ============================================================ */
+.clients-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.clients-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.client-avatar-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.client-company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-company-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.client-company-cnpj {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.client-type-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* ---- Client Detail Modal ---- */
+.client-detail-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.client-detail-avatar {
+  width: 60px; height: 60px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.client-detail-name {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.client-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.client-stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.client-stat-value {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  display: block;
+}
+
+.client-stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   OPPORTUNITY DETAIL MODAL
+   ============================================================ */
+.opp-detail-phase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.opp-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.opp-detail-value-box {
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.opp-detail-value-number {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--green);
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+.opp-detail-value-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+  margin-top: 4px;
+}
+
+.opp-prob-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.opp-prob-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(var(--brand-primary) var(--prob, 50%), var(--bg-elevated) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.opp-prob-circle::after {
+  content: '';
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  position: absolute;
+}
+
+.opp-prob-number {
+  position: relative;
+  z-index: 1;
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.opp-section-title {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opp-section-title svg { width: 14px; height: 14px; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1200px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-row { grid-template-columns: 1fr; }
+  .dashboard-row-3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  :root { --sidebar-width: 0px; }
+  .sidebar { transform: translateX(-240px); }
+  .sidebar.open { transform: translateX(0); width: 240px; }
+  .opp-detail-grid { grid-template-columns: 1fr; }
+  .client-stats-row { grid-template-columns: repeat(3,1fr); }
+}
+
+@media (max-width: 600px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .page-content { padding: var(--space-4); }
+  .client-stats-row { grid-template-columns: 1fr; }
+}
