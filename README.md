@@ -167,7 +167,7 @@ O sistema vem com dados mock realistas do setor:
 
 Para evoluir este protótipo para um produto SaaS completo:
 
-- [ ] Backend com autenticação (Node.js + NestJS ou Java + Spring Boot)
+- [ ] Backend com autenticação (Java + Spring Boot)
 - [ ] Banco de dados relacional (PostgreSQL)
 - [ ] Multi-tenant (um sistema, múltiplos atacadistas)
 - [ ] Aplicativo mobile (React Native)
